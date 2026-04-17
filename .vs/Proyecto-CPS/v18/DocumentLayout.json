@@ -1,0 +1,400 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\pedidometodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\pedidometodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\metodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\metodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\categoriamenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\categoriamenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\boleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\boleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\mesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\mesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\empleadoturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\empleadoturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\detallemetodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\detallemetodopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\detallemenupedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\detallemenupedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|c:\\users\\kevin-goicochea\\source\\repos\\proyecto-cps\\proyecto-cps.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:proyecto-cps.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-17T03:52:20.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:40:43.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PedidoMetodoPago.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\PedidoMetodoPago.cs",
+              "RelativeDocumentMoniker": "Models\\PedidoMetodoPago.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\PedidoMetodoPago.cs",
+              "RelativeToolTip": "Models\\PedidoMetodoPago.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:40:09.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MetodoPago.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\MetodoPago.cs",
+              "RelativeDocumentMoniker": "Models\\MetodoPago.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\MetodoPago.cs",
+              "RelativeToolTip": "Models\\MetodoPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:38:48.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriaMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\CategoriaMenu.cs",
+              "RelativeDocumentMoniker": "Models\\CategoriaMenu.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\CategoriaMenu.cs",
+              "RelativeToolTip": "Models\\CategoriaMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:35:55.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Data\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDBContext.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Data\\AppDBContext.cs",
+              "RelativeToolTip": "Data\\AppDBContext.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAAABAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:30:35.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvygAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Reserva.cs",
+              "RelativeDocumentMoniker": "Models\\Reserva.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Reserva.cs",
+              "RelativeToolTip": "Models\\Reserva.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA0wBkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Pedido.cs",
+              "RelativeDocumentMoniker": "Models\\Pedido.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Pedido.cs",
+              "RelativeToolTip": "Models\\Pedido.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwBsAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Pago.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Pago.cs",
+              "RelativeDocumentMoniker": "Models\\Pago.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Pago.cs",
+              "RelativeToolTip": "Models\\Pago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Rol.cs",
+              "RelativeToolTip": "Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Orden.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Orden.cs",
+              "RelativeDocumentMoniker": "Models\\Orden.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Orden.cs",
+              "RelativeToolTip": "Models\\Orden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Boleta.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Boleta.cs",
+              "RelativeDocumentMoniker": "Models\\Boleta.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Boleta.cs",
+              "RelativeToolTip": "Models\\Boleta.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Turno.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Turno.cs",
+              "RelativeDocumentMoniker": "Models\\Turno.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Turno.cs",
+              "RelativeToolTip": "Models\\Turno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Mesa.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Mesa.cs",
+              "RelativeDocumentMoniker": "Models\\Mesa.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Mesa.cs",
+              "RelativeToolTip": "Models\\Mesa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Menu.cs",
+              "RelativeDocumentMoniker": "Models\\Menu.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Menu.cs",
+              "RelativeToolTip": "Models\\Menu.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAUwB0AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EmpleadoTurno.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\EmpleadoTurno.cs",
+              "RelativeDocumentMoniker": "Models\\EmpleadoTurno.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\EmpleadoTurno.cs",
+              "RelativeToolTip": "Models\\EmpleadoTurno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Empleado.cs",
+              "RelativeDocumentMoniker": "Models\\Empleado.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Empleado.cs",
+              "RelativeToolTip": "Models\\Empleado.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA0wCUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DetalleMetodoPago.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\DetalleMetodoPago.cs",
+              "RelativeDocumentMoniker": "Models\\DetalleMetodoPago.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\DetalleMetodoPago.cs",
+              "RelativeToolTip": "Models\\DetalleMetodoPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DetalleMenuPedido.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\DetalleMenuPedido.cs",
+              "RelativeDocumentMoniker": "Models\\DetalleMenuPedido.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\DetalleMenuPedido.cs",
+              "RelativeToolTip": "Models\\DetalleMenuPedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Comentario.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Comentario.cs",
+              "RelativeDocumentMoniker": "Models\\Comentario.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Comentario.cs",
+              "RelativeToolTip": "Models\\Comentario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwBYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Models\\Cliente.cs",
+              "RelativeToolTip": "Models\\Cliente.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T03:27:26.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Proyecto-CPS.csproj",
+              "DocumentMoniker": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Proyecto-CPS.csproj",
+              "RelativeDocumentMoniker": "Proyecto-CPS.csproj",
+              "ToolTip": "C:\\Users\\Kevin-Goicochea\\source\\repos\\PROYECTO-CPS\\Proyecto-CPS.csproj",
+              "RelativeToolTip": "Proyecto-CPS.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-17T03:27:26.498Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

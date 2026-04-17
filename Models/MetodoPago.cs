@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyecto_CPS.Models
 {
-    public class MetedoPago
+    public class MetodoPago
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdMetodoDePago { get; set; }
