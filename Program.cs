@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SQLCadena"));
 });
 
 var app = builder.Build();
