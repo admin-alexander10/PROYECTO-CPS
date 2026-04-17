@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Proyecto-CPS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\boleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\boleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,28 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Boleta.cs",
+              "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Boleta.cs",
+              "RelativeDocumentMoniker": "Models\\Boleta.cs",
+              "ToolTip": "D:\\Proyecto-CPS\\Models\\Boleta.cs",
+              "RelativeToolTip": "Models\\Boleta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:07:58.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Cliente.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Cliente.cs",
               "RelativeDocumentMoniker": "Models\\Cliente.cs",
               "ToolTip": "D:\\Proyecto-CPS\\Models\\Cliente.cs",
               "RelativeToolTip": "Models\\Cliente.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T23:35:27.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Proyecto-CPS",
+              "DocumentIndex": 2,
+              "Title": "Proyecto-CPS.csproj",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Proyecto-CPS.csproj",
               "RelativeDocumentMoniker": "Proyecto-CPS.csproj",
               "ToolTip": "D:\\Proyecto-CPS\\Proyecto-CPS.csproj",
               "RelativeToolTip": "Proyecto-CPS.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-13T23:21:50.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T23:21:50.489Z"
             },
             {
               "$type": "Bookmark",
