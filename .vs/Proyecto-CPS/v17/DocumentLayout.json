@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Proyecto-CPS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,10 +23,6 @@
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\pedidometedopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\pedidometedopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\metedopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:models\\metedopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\models\\mesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,6 +73,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|d:\\proyecto-cps\\proyecto-cps.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1C6AA03A-E7EB-4FBB-82B2-33A8F99B0F32}|Proyecto-CPS.csproj|solutionrelative:proyecto-cps.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Proyecto-CPS\\Models\\PedidoMetedoPago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\PedidoMetedoPago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Proyecto-CPS\\Models\\MetedoPago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\MetedoPago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -91,19 +95,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Proyecto-CPS\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Proyecto-CPS\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-17T21:27:00.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Usuario.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
               "ToolTip": "D:\\Proyecto-CPS\\Models\\Usuario.cs",
               "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAA0wCgAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwCgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T00:39:45.248Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Turno.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Turno.cs",
               "RelativeDocumentMoniker": "Models\\Turno.cs",
@@ -111,12 +128,11 @@
               "RelativeToolTip": "Models\\Turno.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:39:11.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:39:11.358Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Rol.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Rol.cs",
               "RelativeDocumentMoniker": "Models\\Rol.cs",
@@ -124,12 +140,11 @@
               "RelativeToolTip": "Models\\Rol.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:38:14.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:38:14.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Reserva.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Reserva.cs",
               "RelativeDocumentMoniker": "Models\\Reserva.cs",
@@ -137,12 +152,11 @@
               "RelativeToolTip": "Models\\Reserva.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAA0wBkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:37:09.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:37:09.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "PedidoMetedoPago.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\PedidoMetedoPago.cs",
               "RelativeDocumentMoniker": "Models\\PedidoMetedoPago.cs",
@@ -150,8 +164,7 @@
               "RelativeToolTip": "Models\\PedidoMetedoPago.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:36:28.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:36:28.698Z"
             },
             {
               "$type": "Document",
@@ -163,8 +176,7 @@
               "RelativeToolTip": "Models\\Pedido.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAUwBsAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:35:06.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:35:06.718Z"
             },
             {
               "$type": "Document",
@@ -176,8 +188,7 @@
               "RelativeToolTip": "Models\\Pago.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:34:13.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:34:13.276Z"
             },
             {
               "$type": "Document",
@@ -189,12 +200,11 @@
               "RelativeToolTip": "Models\\Orden.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:33:22.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:33:22.56Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "MetedoPago.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\MetedoPago.cs",
               "RelativeDocumentMoniker": "Models\\MetedoPago.cs",
@@ -202,12 +212,11 @@
               "RelativeToolTip": "Models\\MetedoPago.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:32:26.27Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:32:26.27Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Mesa.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Mesa.cs",
               "RelativeDocumentMoniker": "Models\\Mesa.cs",
@@ -215,12 +224,11 @@
               "RelativeToolTip": "Models\\Mesa.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:31:37.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:31:37.28Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Menu.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Menu.cs",
               "RelativeDocumentMoniker": "Models\\Menu.cs",
@@ -228,12 +236,11 @@
               "RelativeToolTip": "Models\\Menu.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAUwB0AAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:30:34.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:30:34.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "EmpleadoTurno.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\EmpleadoTurno.cs",
               "RelativeDocumentMoniker": "Models\\EmpleadoTurno.cs",
@@ -241,12 +248,11 @@
               "RelativeToolTip": "Models\\EmpleadoTurno.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:29:43.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:29:43.415Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Empleado.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Empleado.cs",
               "RelativeDocumentMoniker": "Models\\Empleado.cs",
@@ -254,12 +260,11 @@
               "RelativeToolTip": "Models\\Empleado.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAA0wCUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:28:41.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:28:41.289Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "DetalleMetodoPago.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\DetalleMetodoPago.cs",
               "RelativeDocumentMoniker": "Models\\DetalleMetodoPago.cs",
@@ -267,12 +272,11 @@
               "RelativeToolTip": "Models\\DetalleMetodoPago.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:26:54.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:26:54.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "DetalleMenuPedido.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\DetalleMenuPedido.cs",
               "RelativeDocumentMoniker": "Models\\DetalleMenuPedido.cs",
@@ -280,12 +284,11 @@
               "RelativeToolTip": "Models\\DetalleMenuPedido.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:25:13.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:25:13.406Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "Comentario.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Comentario.cs",
               "RelativeDocumentMoniker": "Models\\Comentario.cs",
@@ -293,20 +296,11 @@
               "RelativeToolTip": "Models\\Comentario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAIwBYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:24:14.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2026-04-17T00:24:14.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "Boleta.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Boleta.cs",
               "RelativeDocumentMoniker": "Models\\Boleta.cs",
@@ -314,12 +308,11 @@
               "RelativeToolTip": "Models\\Boleta.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAUwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:07:58.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:07:58.336Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "Cliente.cs",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Models\\Cliente.cs",
               "RelativeDocumentMoniker": "Models\\Cliente.cs",
@@ -327,12 +320,11 @@
               "RelativeToolTip": "Models\\Cliente.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T23:35:27.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T23:35:27.582Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "Proyecto-CPS.csproj",
               "DocumentMoniker": "D:\\Proyecto-CPS\\Proyecto-CPS.csproj",
               "RelativeDocumentMoniker": "Proyecto-CPS.csproj",
@@ -341,6 +333,14 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-04-13T23:21:50.489Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
