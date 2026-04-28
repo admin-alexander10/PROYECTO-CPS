@@ -1,0 +1,111 @@
+﻿@model Proyecto_CPS.Models.Menu
+
+@{
+    ViewData["Title"] = "Nuevo Platillo";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        Agregar Nuevo Platillo
+                    </h3>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+
+                        <!-- NOMBRE -->
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label">
+                                <i class="fas fa-utensils me-1"></i>
+                                Nombre del Platillo <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Nombre"
+                                   class="form-control form-control-lg"
+                                   placeholder="Ej: Lomo Saltado"
+                                   required
+                                   pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+                                   title="Solo letras y espacios"
+                                   oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+                        <!-- CATEGORIA -->
+                        <div class="mb-3">
+                            <label asp-for="CategoriaMenuId" class="form-label">
+                                <i class="fas fa-list me-1"></i>
+                                Categoría <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="CategoriaMenuId" class="form-select form-select-lg" asp-items="ViewBag.Categorias" required>
+                                <option value="">-- Selecciona una categoría --</option>
+                            </select>
+                            <span asp-validation-for="CategoriaMenuId" class="text-danger"></span>
+                        </div>
+
+                        <!-- PRECIO -->
+                        <div class="mb-3">
+                            <label asp-for="Precio" class="form-label">
+                                <i class="fas fa-dollar-sign me-1"></i>
+                                Precio (S/.) <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Precio" type="number" step="0.01" min="0"
+                                   class="form-control form-control-lg"
+                                   placeholder="0.00" required />
+                            <span asp-validation-for="Precio" class="text-danger"></span>
+                        </div>
+
+                        <!-- DESCRIPCIÓN -->
+                        <div class="mb-3">
+                            <label asp-for="Descripcion" class="form-label">
+                                <i class="fas fa-align-left me-1"></i>
+                                Descripción <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Descripcion"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Describe el platillo..."
+                                      required></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <!-- IMAGEN URL (NUEVO CAMPO) -->
+                        <div class="mb-3">
+                            <label asp-for="ImagenUrl" class="form-label">
+                                <i class="fas fa-image me-1"></i>
+                                URL de la Imagen <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="ImagenUrl"
+                                   class="form-control form-control-lg"
+                                   placeholder="https://ejemplo.com/imagen.jpg"
+                                   required
+                                   pattern="https?://.+"
+                                   title="Debe ingresar una URL válida que comience con http o https" />
+                            <span asp-validation-for="ImagenUrl" class="text-danger"></span>
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-save me-2"></i>Guardar Platillo
+                            </button>
+                            <a asp-action="Admin" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

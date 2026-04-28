@@ -1,0 +1,59 @@
+﻿@model Proyecto_CPS.Models.Menu
+
+@{
+    ViewData["Title"] = "Eliminar Platillo";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Confirmar Eliminación
+                    </h3>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <strong>¿Estás seguro de eliminar este platillo?</strong>
+                        <p class="mb-0 mt-2">Esta acción no se puede deshacer.</p>
+                    </div>
+
+                    <div class="card bg-light mb-4">
+                        <div class="card-body">
+                            <h4 class="text-primary mb-3">@Model.Nombre</h4>
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">Categoría:</dt>
+                                <dd class="col-sm-8">
+                                    <span class="badge bg-info">@Model.CategoriaMenus?.NombreDeCategoria</span>
+                                </dd>
+
+                                <dt class="col-sm-4">Precio:</dt>
+                                <dd class="col-sm-8">
+                                    <strong class="text-success">S/. @Model.Precio.ToString("0.00")</strong>
+                                </dd>
+
+                                <dt class="col-sm-4">Descripción:</dt>
+                                <dd class="col-sm-8">@Model.Descripcion</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="IdMenu" />
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash me-2"></i>Sí, Eliminar
+                            </button>
+                            <a asp-action="Admin" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

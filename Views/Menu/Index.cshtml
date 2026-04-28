@@ -1,0 +1,210 @@
+﻿@model IEnumerable<Proyecto_CPS.Models.Menu>
+@{
+    ViewData["Title"] = "Nuestro Menú - Rancho Azul";
+    var rol = Context.Session.GetString("Rol");
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="display-4 text-primary">Nuestro Menú</h1>
+            <p class="lead">Descubre los auténticos sabores de la sierra peruana</p>
+        </div>
+    </div>
+
+    <!-- Mostrar error si existe -->
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>@ViewBag.Error
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Filtros por Categoría -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary mb-3">
+                        <i class="fas fa-filter me-2"></i>Filtrar por Categoría
+                    </h5>
+                    <div class="btn-group flex-wrap" role="group">
+                        <button type="button" class="btn btn-primary active" onclick="filtrarMenu('all')">
+                            <i class="fas fa-utensils me-1"></i>Todos
+                        </button>
+
+                        @foreach (var categoria in ViewBag.Categorias)
+                        {
+                            <button type="button" class="btn btn-outline-primary"
+                                    onclick="filtrarMenu(@categoria.IdCategoria)">
+                                @categoria.NombreDeCategoria
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de Menús -->
+    <div class="row" id="menu-grid">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4 menu-item" data-categoria="@item.CategoriaMenuId">
+                    <div class="card h-100 feature-card">
+                        <div class="card-header bg-primary text-white text-center py-3">
+                            <h5 class="card-title mb-0">@item.Nombre</h5>
+                            <small class="badge bg-warning mt-1">
+                                @item.CategoriaMenus?.NombreDeCategoria
+                            </small>
+                        </div>
+
+                        <div class="card-body text-center d-flex flex-column">
+                            <div class="mb-3">
+                                <img src="@item.ImagenUrl" alt="@item.Nombre" class="img-fluid mb-2"
+                                     style="max-height:200px; object-fit:cover;" />
+                            </div>
+
+                            <div class="mb-3">
+                                <span class="display-6 text-primary fw-bold">S/. @item.Precio.ToString("0.00")</span>
+                            </div>
+
+                            <p class="card-text flex-grow-1">@item.Descripcion</p>
+
+                            <div class="mt-auto">
+                                <small class="text-muted d-block">
+                                    <i class="fas fa-tag me-1"></i>
+                                    @item.CategoriaMenus?.NombreDeCategoria
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-center bg-transparent">
+                            @if (Context.Session.GetString("Email") != null)
+                            {
+                                @if (rol != "Mesero" && rol != "Administrador")
+                                {
+                                    <button class="btn btn-primary btn-sm"
+                                            onclick="agregarAlPedido(event, @item.IdMenu, '@item.Nombre')">
+                                        <i class="fas fa-cart-plus me-1"></i>Agregar al Pedido
+                                    </button>
+                                }
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Login", "Acceso")" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-sign-in-alt me-1"></i>Inicia sesión para pedir
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <div class="alert alert-warning">
+                    <h4><i class="fas fa-utensils me-2"></i>Menú en Preparación</h4>
+                    <p class="mb-2">Estamos actualizando nuestro menú con los mejores platos de la sierra.</p>
+                    <p class="mb-0">Pronto tendremos deliciosas opciones para ti.</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- Scripts inline para evitar problemas con la sección -->
+<script>
+    // Función para filtrar el menú
+    function filtrarMenu(categoriaId) {
+        const menuItems = document.querySelectorAll('.menu-item');
+        const botones = document.querySelectorAll('.btn-group .btn');
+
+        // Remover active de todos los botones
+        botones.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-outline-success');
+        });
+
+        // Agregar active al botón clickeado
+        event.target.classList.add('active');
+        event.target.classList.remove('btn-outline-success');
+        event.target.classList.add('btn-success');
+
+        // Filtrar items
+        menuItems.forEach(item => {
+            if (categoriaId === 'all' || item.getAttribute('data-categoria') === categoriaId.toString()) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+
+        function agregarAlPedido(event, menuId, menuNombre) {
+        const boton = event.currentTarget; // asegura que tomes el botón
+
+        // Llamada al servidor para agregar el plato al pedido
+        fetch('/Pedidos/AgregarPedido', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idMenu: menuId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Feedback visual
+                const originalText = boton.innerHTML;
+                boton.innerHTML = '<i class="fas fa-check me-1"></i>Agregado!';
+                boton.classList.remove('btn-success');
+                boton.classList.add('btn-warning');
+                boton.disabled = true;
+
+                setTimeout(() => {
+                    boton.innerHTML = originalText;
+                    boton.classList.remove('btn-warning');
+                    boton.classList.add('btn-success');
+                    boton.disabled = false;
+
+                    // Redirigir a MisPedidos
+                    window.location.href = '/Pedidos/MisPedidos';
+                }, 1500);
+
+            } else {
+                alert(data.message); // mensaje del servidor
+            }
+        })
+        .catch(error => {
+            console.error('Error al agregar al pedido:', error);
+            alert('Ocurrió un error al agregar el plato al pedido.');
+        });
+
+        console.log(`Intentando agregar al pedido: ${menuNombre} (ID: ${menuId})`);
+    }
+
+
+
+    // Animación al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                item.style.transition = 'all 0.5s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+</script>
