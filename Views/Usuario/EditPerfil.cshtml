@@ -1,0 +1,66 @@
+﻿@using Proyecto_CPS.Models
+@model Usuario
+
+@{
+    ViewData["Title"] = "Editar Perfil - Rancho Azul";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-primary">
+                <div class="card-header bg-primary text-white text-center">
+                    <i class="fas fa-user-edit fa-3x mb-2"></i>
+                    <h3 class="mb-0">Editar Perfil</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditPerfil" method="post">
+                        <div class="mb-3">
+                            <label for="NombreUsuario" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" value="@Model.NombreUsuario" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Correo" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="Correo" name="Correo" value="@Model.Correo" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Contrasena" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="Contrasena" name="Contrasena" value="@Model.Contrasena" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ConfirmarContrasena" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="ConfirmarContrasena" name="ConfirmarContrasena" value="@Model.Contrasena" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-save me-2"></i>Guardar Cambios
+                            </button>
+                            <a href="@Url.Action("Perfil", "Usuario")" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-arrow-left me-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+    .form-label {
+        font-weight: 500;
+    }
+</style>

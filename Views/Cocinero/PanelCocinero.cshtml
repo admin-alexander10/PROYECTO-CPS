@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Proyecto_CPS.Models.Orden>
+
+<h2>Órdenes en Cocina</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div>No hay órdenes cargadas en la base de datos.</div>
+}
+else
+{
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID Orden</th>
+                <th>ID Pedido</th>
+                <th>Fecha</th>
+                <th>Estado Cocina</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var orden in Model)
+            {
+                <tr>
+                    <td>@orden.IdOrden</td>
+                    <td>@orden.PedidoId</td>
+                    <td>@orden.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@orden.EstadoCocina</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

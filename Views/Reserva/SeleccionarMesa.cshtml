@@ -1,0 +1,298 @@
+﻿@model Proyecto_CPS.Models.Reserva
+@{
+    ViewData["Title"] = "Completar Reserva - Rancho Azul";
+    var mesa = ViewBag.Mesa as Proyecto_CPS.Models.Mesa;
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Información de la Mesa Seleccionada -->
+            <div class="card shadow-lg border-0 mb-4">
+                <div class="card-header bg-gradient text-white text-center py-4">
+                    <i class="fas fa-chair fa-3x mb-3"></i>
+                    <h2 class="mb-0">Mesa @mesa.NumMesa Seleccionada</h2>
+                    <p class="mb-0">
+                        <i class="fas fa-users me-2"></i>
+                        Capacidad: @mesa.Capacidad personas
+                    </p>
+                </div>
+            </div>
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>@TempData["Error"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <!-- Formulario de Reserva -->
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                    <h4 class="card-title mb-4 text-primary">
+                        <i class="fas fa-clipboard-list me-2"></i>
+                        Completa tus Datos de Reserva
+                    </h4>
+
+                    <form asp-action="Crear" method="post" id="formReserva">
+                        <input type="hidden" name="mesaId" value="@mesa.IdMesa" />
+
+                        <!-- Datos Personales -->
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <h5 class="text-secondary">
+                                    <i class="fas fa-user me-2"></i>Datos Personales
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>
+                                    Primer Nombre <span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.PrimNombre"
+                                       placeholder="Ej: Juan"
+                                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,50}"
+                                       title="Solo letras y espacios"
+                                       required
+                                       oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>
+                                    Segundo Nombre
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.SegNombre"
+                                       placeholder="Ej: Carlos"
+                                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{0,50}"
+                                       title="Solo letras y espacios"
+                                       oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>
+                                    Apellido Paterno <span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.ApellidoP"
+                                       placeholder="Ej: Pérez"
+                                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,50}"
+                                       title="Solo letras y espacios"
+                                       oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>
+                                    Apellido Materno <span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.ApellidoM"
+                                       placeholder="Ej: García"
+                                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,50}"
+                                       title="Solo letras y espacios"
+                                       required
+                                       oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')">
+                            </div>
+                        </div>
+
+
+                        <!-- Datos de Contacto -->
+                        <div class="row mt-4">
+                            <div class="col-12 mb-3">
+                                <h5 class="text-secondary">
+                                    <i class="fas fa-address-book me-2"></i>Datos de Contacto
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-phone me-1"></i>
+                                    Teléfono <span class="text-danger">*</span>
+                                </label>
+                                <input type="tel"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.Telefono"
+                                       placeholder="Ej: 987654321"
+                                       pattern="9[0-9]{8}"
+                                       required>
+                                <small class="text-muted">Ingresa 9 dígitos</small>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-envelope me-1"></i>
+                                    Correo Electrónico <span class="text-danger">*</span>
+                                </label>
+                                <input type="email"
+                                       class="form-control form-control-lg"
+                                       name="Clientes.Correo"
+                                       placeholder="correo@ejemplo.com"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Datos de Reserva -->
+                        <div class="row mt-4">
+                            <div class="col-12 mb-3">
+                                <h5 class="text-secondary">
+                                    <i class="fas fa-calendar-alt me-2"></i>Datos de Reserva
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="far fa-calendar me-1"></i>
+                                    Fecha de Reserva <span class="text-danger">*</span>
+                                </label>
+                                <input type="date"
+                                       class="form-control form-control-lg"
+                                       name="Fecha"
+                                       id="fechaReserva"
+                                       min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                       required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="far fa-clock me-1"></i>
+                                    Hora de Reserva <span class="text-danger">*</span>
+                                </label>
+                                <input type="time"
+                                       class="form-control form-control-lg"
+                                       name="Hora"
+                                       id="horaReserva"
+                                       min="11:00"
+                                       max="22:00"
+                                       required>
+                                <small class="text-muted">Horario: 11:00 AM - 10:00 PM</small>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Nota:</strong> Tu reserva quedará confirmada una vez que completes el registro.
+                            Te enviaremos un correo de confirmación.
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-2">
+                                <a href="@Url.Action("Index", "Reserva")"
+                                   class="btn btn-outline-secondary btn-lg w-100">
+                                    <i class="fas fa-arrow-left me-2"></i>
+                                    Cambiar Mesa
+                                </a>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <button type="submit" class="btn btn-success btn-lg w-100 btn-registrar">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    Registrar Reserva
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient {
+        background: linear-gradient(135deg, #0a3c78, #2878c8);
+    }
+
+    .form-control:focus {
+        border-color: #2878c8;
+        box-shadow: 0 0 0 0.25rem rgba(40, 120, 200, 0.25);
+    }
+
+    .btn-registrar {
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+        .btn-registrar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #495057;
+    }
+
+    input.form-control {
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+
+        input.form-control:hover {
+            border-color: #2878c8;
+        }
+
+    .text-danger {
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    // Validación en tiempo real
+    document.getElementById('formReserva').addEventListener('submit', function(e) {
+        const fecha = document.getElementById('fechaReserva').value;
+        const hora = document.getElementById('horaReserva').value;
+
+        if (!fecha || !hora) {
+            e.preventDefault();
+            alert('Por favor, completa la fecha y hora de la reserva');
+            return;
+        }
+
+        // Confirmar reserva
+        if (!confirm('¿Confirmar reserva para la Mesa @mesa.NumMesa?')) {
+            e.preventDefault();
+        }
+    });
+
+    // Validar hora dentro del horario permitido
+    document.getElementById('horaReserva').addEventListener('change', function() {
+        const hora = this.value;
+        const [hours, minutes] = hora.split(':').map(Number);
+        const totalMinutes = hours * 60 + minutes;
+
+        const minMinutes = 11 * 60; // 11:00 AM
+        const maxMinutes = 22 * 60; // 10:00 PM
+
+        if (totalMinutes < minMinutes || totalMinutes > maxMinutes) {
+            alert('Por favor, selecciona un horario entre 11:00 AM y 10:00 PM');
+            this.value = '11:00';
+        }
+    });
+</script>

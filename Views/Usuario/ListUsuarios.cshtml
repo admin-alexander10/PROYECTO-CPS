@@ -1,0 +1,215 @@
+﻿@using Proyecto_CPS.Models
+@model IEnumerable<Usuario>
+
+@{
+    ViewData["Title"] = "Administrar Usuarios - Rancho Azul";
+}
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h1 class="text-primary">
+                <i class="fas fa-users me-2"></i>
+                Administración de Usuarios
+            </h1>
+            <p class="text-muted">Gestiona los usuarios del sistema</p>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-action="Create" class="btn btn-success btn-lg shadow">
+                <i class="fas fa-user-plus me-2"></i>
+                Agregar Nuevo Usuario
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>@TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-list me-2"></i>
+                    Total de Usuarios: @Model.Count()
+                </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped mb-0 align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th class="text-center">
+                                    <i class="fas fa-hashtag me-1"></i>ID
+                                </th>
+                                <th>
+                                    <i class="fas fa-user me-1"></i>Usuario
+                                </th>
+                                <th>
+                                    <i class="fas fa-envelope me-1"></i>Correo
+                                </th>
+                                <th class="text-center">
+                                    <i class="fas fa-user-tag me-1"></i>Rol
+                                </th>
+                                <th class="text-center">
+                                    <i class="fas fa-calendar me-1"></i>Fecha Creación
+                                </th>
+                                <th class="text-center">
+                                    <i class="fas fa-toggle-on me-1"></i>Estado
+                                </th>
+                                <th class="text-center">
+                                    <i class="fas fa-cog me-1"></i>Acciones
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var usuario in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        <strong class="badge bg-primary fs-6">#@usuario.IdUsuario</strong>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div>
+                                                <strong>@usuario.NombreUsuario</strong>
+                                                @if (usuario.Cliente != null)
+                                                {
+                                                    <br>
+                                                    <small class="text-muted">
+                                                        @usuario.Cliente.PrimNombre @usuario.Cliente.ApellidoP
+                                                    </small>
+                                                }
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <i class="fas fa-envelope text-primary me-1"></i>
+                                        @usuario.Correo
+                                    </td>
+                                    <td class="text-center">
+                                        @{
+                                            var rolClass = usuario.Rol?.NombreRol switch
+                                            {
+                                                "Administrador" => "bg-danger",
+                                                "Mesero" => "bg-info",
+                                                "Cocinero" => "bg-warning text-dark",
+                                                "Cliente" => "bg-success",
+                                                _ => "bg-secondary"
+                                            };
+                                        }
+                                        <span class="badge @rolClass fs-6">
+                                            @usuario.Rol?.NombreRol
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <small>@usuario.FechaCreacion.ToString("dd/MM/yyyy")</small>
+                                    </td>
+                                    <td class="text-center">
+                                        @if (usuario.Estado)
+                                        {
+                                            <span class="badge bg-success fs-6">
+                                                <i class="fas fa-check-circle me-1"></i>Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger fs-6">
+                                                <i class="fas fa-times-circle me-1"></i>Inactivo
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm">
+                                            <a asp-action="Edit" asp-route-id="@usuario.IdUsuario"
+                                               class="btn btn-warning" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@usuario.IdUsuario"
+                                               class="btn btn-danger" title="Eliminar">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-lg border-0">
+            <div class="card-body text-center py-5">
+                <i class="fas fa-users fa-5x text-muted mb-4"></i>
+                <h3 class="text-muted mb-3">No hay usuarios registrados</h3>
+                <p class="lead text-muted mb-4">Comienza agregando el primer usuario al sistema</p>
+                <a asp-action="Create" class="btn btn-primary btn-lg">
+                    <i class="fas fa-user-plus me-2"></i>Agregar Primer Usuario
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .avatar-circle {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .table tbody tr {
+        transition: all 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .btn-group .btn {
+        transition: all 0.3s ease;
+    }
+
+        .btn-group .btn:hover {
+            transform: scale(1.1);
+        }
+</style>
+
+<script>
+    // Auto-cerrar alertas después de 5 segundos
+    setTimeout(function() {
+        $('.alert').fadeOut('slow');
+    }, 5000);
+</script>

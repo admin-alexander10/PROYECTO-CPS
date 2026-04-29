@@ -1,0 +1,350 @@
+﻿@model Proyecto_CPS.Models.Pedido
+
+@{
+    ViewData["Title"] = "Detalles del Pedido #" + Model.IdPedido;
+    var totalPedido = Model.DetalleMenuPedidos?.Sum(d => d.Cantidad * d.Menu.Precio) ?? 0;
+    var totalPlatos = Model.DetalleMenuPedidos?.Sum(d => d.Cantidad) ?? 0;
+}
+
+<div class="container mt-4 mb-5">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2 class="text-primary">
+                <i class="fas fa-receipt me-2"></i>
+                Detalles del Pedido #@Model.IdPedido
+            </h2>
+            <p class="text-muted">Información completa del pedido</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="@Url.Action("Activos", "Pedidos")" class="btn btn-outline-secondary btn-lg">
+                <i class="fas fa-arrow-left me-2"></i>Volver
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Información del Cliente -->
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user-circle me-2"></i>
+                        Información del Cliente
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="client-info">
+                        <div class="text-center mb-4">
+                            <div class="client-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+
+                        <div class="info-item mb-3">
+                            <i class="fas fa-user text-primary me-2"></i>
+                            <div>
+                                <small class="text-muted d-block">Nombre</small>
+                                <strong>@Model.Usuario?.NombreUsuario</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-item mb-3">
+                            <i class="fas fa-envelope text-primary me-2"></i>
+                            <div>
+                                <small class="text-muted d-block">Correo</small>
+                                <strong class="text-break">@Model.Usuario?.Correo</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-item mb-3">
+                            <i class="fas fa-calendar-alt text-primary me-2"></i>
+                            <div>
+                                <small class="text-muted d-block">Fecha del Pedido</small>
+                                <strong>@Model.FechaPedido.ToString("dd/MM/yyyy")</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-clock text-primary me-2"></i>
+                            <div>
+                                <small class="text-muted d-block">Hora</small>
+                                <strong>@Model.FechaPedido.ToString("HH:mm:ss")</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalles de los Platos -->
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-utensils me-2"></i>
+                        Platos del Pedido
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    @if (Model.DetalleMenuPedidos != null && Model.DetalleMenuPedidos.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="ps-4">Plato</th>
+                                        <th>Categoría</th>
+                                        <th class="text-center">Cantidad</th>
+                                        <th class="text-end">Precio Unit.</th>
+                                        <th class="text-end pe-4">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var detalle in Model.DetalleMenuPedidos)
+                                    {
+                                        var subtotal = detalle.Cantidad * detalle.Menu.Precio;
+                                        <tr class="plato-row">
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="plato-icon me-3">
+                                                        <i class="fas fa-utensils"></i>
+                                                    </div>
+                                                    <div>
+                                                        <strong class="d-block">@detalle.Menu.Nombre</strong>
+                                                        <small class="text-muted">@detalle.Menu.Descripcion</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-info">
+                                                    @detalle.Menu.CategoriaMenus?.NombreDeCategoria
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-primary fs-6">
+                                                    x @detalle.Cantidad
+                                                </span>
+                                            </td>
+                                            <td class="text-end">
+                                                <span class="text-muted">
+                                                    S/. @detalle.Menu.Precio.ToString("0.00")
+                                                </span>
+                                            </td>
+                                            <td class="text-end pe-4">
+                                                <strong class="text-success">
+                                                    S/. @subtotal.ToString("0.00")
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td colspan="2" class="ps-4">
+                                            <strong class="fs-5">TOTALES</strong>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge bg-secondary fs-6">
+                                                @totalPlatos plato@(totalPlatos != 1 ? "s" : "")
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <strong>TOTAL:</strong>
+                                        </td>
+                                        <td class="text-end pe-4">
+                                            <strong class="text-success fs-4">
+                                                S/. @totalPedido.ToString("0.00")
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-exclamation-circle fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">No hay platos en este pedido</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumen y Acciones -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg border-0 bg-light">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h4 class="mb-3">
+                                <i class="fas fa-info-circle text-primary me-2"></i>
+                                Resumen del Pedido
+                            </h4>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <strong>Estado:</strong> Pedido Confirmado
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-shopping-bag text-primary me-2"></i>
+                                    <strong>Total de Platos:</strong> @totalPlatos
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign text-success me-2"></i>
+                                    <strong>Monto Total:</strong> S/. @totalPedido.ToString("0.00")
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6 d-flex align-items-center">
+                                <div class="w-100">
+                                    <button class="btn btn-success btn-lg w-100 mb-2 btn-confirmar"
+                                            onclick="imprimirPedido()">
+                                        <i class="fas fa-print me-2"></i>
+                                        Imprimir Pedido
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center">
+                                <div class="w-100">
+                                    <button class="btn btn-primary btn-lg w-100" onclick="marcarEnProceso()">
+                                        <i class="fas fa-check-circle me-2"></i>
+                                        Marcar en Proceso
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    }
+
+    .client-avatar {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+        margin: 0 auto;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .client-info .info-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+    }
+
+        .client-info .info-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .client-info .info-item i {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+    .plato-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .plato-row {
+        transition: all 0.3s ease;
+    }
+
+        .plato-row:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+        }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .table thead th {
+        border-bottom: 2px solid #dee2e6;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+    }
+
+    .table tfoot td {
+        border-top: 3px solid #dee2e6;
+        padding: 20px 12px;
+    }
+</style>
+
+<script>
+    function imprimirPedido() {
+        window.print();
+    }
+
+    function marcarEnProceso() {
+        if (!confirm('¿Enviar este pedido a cocina?\n\nEsto creará una orden para que el cocinero prepare los platos.')) return;
+
+        const pedidoId = @Model.IdPedido;
+        const btn = event.target;
+        const textoOriginal = btn.innerHTML;
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando a cocina...';
+
+        fetch('/Orden/CrearDesdePedido', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `idPedido=${pedidoId}`
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                alert('✅ ' + data.message + '\n\nEl pedido ha sido enviado a cocina exitosamente.');
+                window.location.href = '@Url.Action("Activos", "Pedidos")';
+            } else {
+                alert('❌ ' + data.message);
+                btn.disabled = false;
+                btn.innerHTML = textoOriginal;
+            }
+        })
+        .catch(error => {
+            alert('❌ Error al enviar a cocina. Por favor, intenta nuevamente.');
+            console.error('Error:', error);
+            btn.disabled = false;
+            btn.innerHTML = textoOriginal;
+        });
+    }
+</script>

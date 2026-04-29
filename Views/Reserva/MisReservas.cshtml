@@ -1,0 +1,454 @@
+﻿@model IEnumerable<Proyecto_CPS.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Mis Reservas - Rancho Azul";
+    var hoy = DateTime.Now.Date;
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h1 class="display-4 text-primary">
+                <i class="fas fa-list-alt me-3"></i>Mis Reservas
+            </h1>
+            <p class="lead text-muted">Gestiona tus reservas en Rancho Azul</p>
+        </div>
+        <div class="col-md-6 text-end d-flex align-items-center justify-content-end">
+            <a href="@Url.Action("Index", "Reserva")" class="btn btn-success btn-lg shadow">
+                <i class="fas fa-plus-circle me-2"></i>
+                Nueva Reserva
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Info"] != null)
+    {
+        <div class="alert alert-info alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-info-circle me-2"></i>@TempData["Info"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>@TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        var reservasActivas = Model.Where(r => r.Estado && r.Fecha.Date >= hoy).OrderBy(r => r.Fecha).ThenBy(r => r.Hora).ToList();
+        var reservasPasadas = Model.Where(r => r.Estado && r.Fecha.Date < hoy).OrderByDescending(r => r.Fecha).ThenByDescending(r => r.Hora).ToList();
+        var reservasCanceladas = Model.Where(r => !r.Estado).OrderByDescending(r => r.Fecha).ThenByDescending(r => r.Hora).ToList();
+
+        @if (reservasActivas.Any())
+        {
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-calendar-check me-2"></i>
+                    Reservas Activas (@reservasActivas.Count)
+                </h3>
+                <div class="row">
+                    @foreach (var reserva in reservasActivas)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card reserva-card shadow-lg border-0 h-100">
+                                <div class="card-header bg-gradient-success text-white py-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="mesa-badge mb-2">Mesa @reserva.Mesas.NumMesa</div>
+                                            <small class="opacity-75">Reserva #@reserva.IdReserva</small>
+                                        </div>
+                                        <span class="badge bg-success fs-6 px-3 py-2">
+                                            <i class="fas fa-check-circle"></i> Activa
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="fas fa-chair fa-4x text-primary mb-3"></i>
+                                        <div>
+                                            <span class="badge bg-info fs-6 px-4 py-2">
+                                                <i class="fas fa-users me-2"></i>
+                                                Capacidad: @reserva.Mesas.Capacidad personas
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="reserva-details">
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-user text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Cliente</small>
+                                                <strong>@reserva.Clientes.PrimNombre @reserva.Clientes.ApellidoP @reserva.Clientes.ApellidoM</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-calendar-alt text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Fecha</small>
+                                                <strong>@reserva.Fecha.ToString("dddd, dd 'de' MMMM", new System.Globalization.CultureInfo("es-ES"))</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-clock text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Hora</small>
+                                                <strong>@reserva.Hora.ToString("hh:mm tt")</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-phone text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Teléfono</small>
+                                                <strong>@reserva.Clientes.Telefono</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-envelope text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Email</small>
+                                                <strong class="text-break">@reserva.Clientes.Correo</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer bg-light border-top-0 p-3">
+                                    <button class="btn btn-danger w-100 btn-lg" onclick="confirmarCancelacion(@reserva.IdReserva, @reserva.Mesas.NumMesa)">
+                                        <i class="fas fa-times-circle me-2"></i>
+                                        Cancelar Reserva
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        @if (reservasPasadas.Any())
+        {
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-history me-2"></i>
+                    Reservas Pasadas (@reservasPasadas.Count)
+                </h3>
+                <div class="row">
+                    @foreach (var reserva in reservasPasadas)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card reserva-card shadow-lg border-0 h-100 opacity-card">
+                                <div class="card-header bg-gradient-warning text-white py-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="mesa-badge mb-2">Mesa @reserva.Mesas.NumMesa</div>
+                                            <small class="opacity-75">Reserva #@reserva.IdReserva</small>
+                                        </div>
+                                        <span class="badge bg-warning fs-6 px-3 py-2">
+                                            <i class="fas fa-history"></i> Pasada
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="fas fa-chair fa-4x text-secondary mb-3"></i>
+                                        <div>
+                                            <span class="badge bg-secondary fs-6 px-4 py-2">
+                                                <i class="fas fa-users me-2"></i>
+                                                Capacidad: @reserva.Mesas.Capacidad personas
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="reserva-details">
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-calendar-alt text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Fecha</small>
+                                                <strong>@reserva.Fecha.ToString("dd/MM/yyyy")</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-clock text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Hora</small>
+                                                <strong>@reserva.Hora.ToString("hh:mm tt")</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer bg-warning text-white text-center p-3">
+                                    <small class="fw-bold">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Esta reserva ya pasó
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        @if (reservasCanceladas.Any())
+        {
+            <div class="mb-5">
+                <h3 class="text-danger mb-4">
+                    <i class="fas fa-times-circle me-2"></i>
+                    Reservas Canceladas (@reservasCanceladas.Count)
+                </h3>
+                <div class="row">
+                    @foreach (var reserva in reservasCanceladas)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card reserva-card shadow-lg border-0 h-100 opacity-card">
+                                <div class="card-header bg-gradient-danger text-white py-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="mesa-badge mb-2">Mesa @reserva.Mesas.NumMesa</div>
+                                            <small class="opacity-75">Reserva #@reserva.IdReserva</small>
+                                        </div>
+                                        <span class="badge bg-danger fs-6 px-3 py-2">
+                                            <i class="fas fa-times-circle"></i> Cancelada
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="fas fa-chair fa-4x text-secondary mb-3"></i>
+                                        <div>
+                                            <span class="badge bg-secondary fs-6 px-4 py-2">
+                                                <i class="fas fa-users me-2"></i>
+                                                Capacidad: @reserva.Mesas.Capacidad personas
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="reserva-details">
+                                        <div class="detail-item mb-3">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-calendar-alt text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Fecha</small>
+                                                <strong>@reserva.Fecha.ToString("dd/MM/yyyy")</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-item">
+                                            <div class="detail-icon">
+                                                <i class="fas fa-clock text-primary"></i>
+                                            </div>
+                                            <div class="detail-content">
+                                                <small class="text-muted d-block">Hora</small>
+                                                <strong>@reserva.Hora.ToString("hh:mm tt")</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer bg-danger text-white text-center p-3">
+                                    <small class="fw-bold">
+                                        <i class="fas fa-ban me-1"></i>
+                                        Reserva cancelada
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-lg border-0 empty-state">
+                    <div class="card-body text-center py-5">
+                        <i class="fas fa-calendar-times fa-5x text-muted mb-4"></i>
+                        <h3 class="text-muted mb-3">No tienes reservas registradas</h3>
+                        <p class="lead text-muted mb-4">¡Haz tu primera reserva y asegura tu mesa en Rancho Azul!</p>
+                        <a href="@Url.Action("Index", "Reserva")" class="btn btn-primary btn-lg shadow">
+                            <i class="fas fa-plus-circle me-2"></i>Hacer una Reserva
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary btn-lg shadow-sm">
+                <i class="fas fa-arrow-left me-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-success {
+        background: linear-gradient(135deg, #28a745, #20c997);
+    }
+
+    .bg-gradient-warning {
+        background: linear-gradient(135deg, #ffc107, #fd7e14);
+    }
+
+    .bg-gradient-danger {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+    }
+
+    .reserva-card {
+        transition: all 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+        .reserva-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+        }
+
+    .opacity-card {
+        opacity: 0.75;
+    }
+
+    .mesa-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: inline-block;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .reserva-details {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 12px;
+        background: white;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .detail-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+    .detail-icon {
+        width: 40px;
+        height: 40px;
+        background: #e7f3ff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+        .detail-icon i {
+            font-size: 1.2rem;
+        }
+
+    .detail-content {
+        flex: 1;
+    }
+
+    .empty-state {
+        border-radius: 20px;
+    }
+
+    .card-header {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    }
+</style>
+
+<script>
+        function confirmarCancelacion(idReserva, numMesa) {
+            if (confirm(`¿Estás seguro de cancelar la reserva de la Mesa ${numMesa}?\n\nLa mesa volverá a estar disponible para otros clientes.`)) {
+                cancelarReserva(idReserva);
+            }
+        }
+
+        function cancelarReserva(id) {
+            const btnCancelar = event.target;
+            const textoOriginal = btnCancelar.innerHTML;
+            btnCancelar.disabled = true;
+            btnCancelar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Cancelando...';
+
+            fetch('@Url.Action("CancelarReserva", "Reserva")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `id=${id}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    location.reload();
+                } else {
+                    alert('❌ ' + data.message);
+                    btnCancelar.disabled = false;
+                    btnCancelar.innerHTML = textoOriginal;
+                }
+            })
+            .catch(error => {
+                alert('❌ Error al cancelar la reserva. Por favor, intenta nuevamente.');
+                console.error('Error:', error);
+                btnCancelar.disabled = false;
+                btnCancelar.innerHTML = textoOriginal;
+            });
+        }
+
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </scr

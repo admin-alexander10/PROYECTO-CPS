@@ -1,43 +1,47 @@
 using Microsoft.EntityFrameworkCore;
 using Proyecto_CPS.Data;
+using System.ComponentModel;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Configurar Servicios
+// MVC
 builder.Services.AddControllersWithViews();
 
+// SESSION
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+
+// DB CONTEXT
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SQLCadena"));
 });
 
-// INDISPENSABLE: Agregar servicio de sesiones
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
-
 var app = builder.Build();
 
+// ERROR HANDLING
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
 
+// STATIC FILES
 app.UseStaticFiles();
+
+// ROUTING
 app.UseRouting();
 
-// INDISPENSABLE: Habilitar sesiones antes de Authorization
+// **AQUÍ ES OBLIGATORIO**
 app.UseSession();
 
 app.UseAuthorization();
 
-// CONFIGURACIÓN DE RUTA: 
-// Cambié "Acceso/Login" por "Menu/Index" para que entres directo al menú al dar Play
+// ROUTE DEFAULT
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Menu}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

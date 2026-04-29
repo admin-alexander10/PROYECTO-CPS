@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Proyecto_CPS.Models.Orden>
+
+@{
+    ViewData["Title"] = "Órdenes Pendientes - Cocinero";
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2 class="text-primary">
+                <i class="fas fa-clock me-2"></i>Órdenes Pendientes
+            </h2>
+            <p class="text-muted">Nuevas órdenes enviadas por los meseros</p>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="@Url.Action("PanelCocinero", "Cocinero")" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Volver al Panel
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="card shadow-lg border-0">
+            <div class="card-body text-center py-5">
+                <i class="fas fa-inbox fa-5x text-muted mb-4"></i>
+                <h4 class="text-muted">No hay órdenes pendientes</h4>
+                <p class="text-muted">Las nuevas órdenes aparecerán aquí</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var orden in Model)
+            {
+                var totalPlatos = orden.Pedido.DetalleMenuPedidos?.Sum(d => d.Cantidad) ?? 0;
+
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-lg border-warning h-100">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0">
+                                <i class="fas fa-receipt me-2"></i>
+                                Orden #@orden.IdOrden
+                            </h5>
+                            <small>
+                                <i class="far fa-clock me-1"></i>
+                                @orden.Fecha.ToString("dd/MM/yyyy HH:mm")
+                            </small>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <strong class="text-muted">Pedido:</strong> #@orden.PedidoId
+                            </div>
+
+                            <h6 class="text-primary mb-3">
+                                <i class="fas fa-utensils me-1"></i>
+                                Platos (@totalPlatos):
+                            </h6>
+
+                            <ul class="list-group list-group-flush mb-3">
+                                @foreach (var detalle in orden.Pedido.DetalleMenuPedidos)
+                                {
+                                    <li class="list-group-item px-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>@detalle.Menu.Nombre</strong>
+                                                <br>
+                                                <small class="text-muted">@detalle.Menu.CategoriaMenus?.NombreDeCategoria</small>
+                                            </div>
+                                            <span class="badge bg-primary fs-6">@detalle.Cantidad</span>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-light text-center">
+                            <button class="btn btn-success btn-lg w-100" onclick="aceptarOrden(@orden.IdOrden)">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Aceptar Orden
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+</style>
+
+<script>
+    function aceptarOrden(id) {
+        if (!confirm('¿Aceptar esta orden y comenzar a prepararla?')) return;
+
+        fetch('/Cocinero/AceptarOrden', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `id=${id}`
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                alert('✅ ' + data.message);
+                location.reload();
+            } else {
+                alert('❌ ' + data.message);
+            }
+        })
+        .catch(error => {
+            alert('❌ Error al aceptar la orden');
+            console.error('Error:', error);
+        });
+    }
+
+    // Auto-actualizar cada 30 segundos
+    setTimeout(function() {
+        location.reload();
+    }, 30000);
+</script>

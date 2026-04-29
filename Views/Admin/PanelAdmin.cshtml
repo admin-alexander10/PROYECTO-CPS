@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administración - Rancho Azul";
+}
+
+<div class="container mt-5">
+    <div class="row mb-5 text-center">
+        <div class="col-12">
+            <h1 class="display-4 text-primary">Panel de Administración</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+        <!-- Card Gestionar Menú -->
+        <div class="col-md-3">
+            <div class="card admin-card text-center shadow-lg">
+                <div class="card-body">
+                    <i class="fas fa-utensils fa-3x text-white mb-3"></i>
+                    <h5 class="card-title text-white">Gestionar Menú</h5>
+                    <p class="card-text text-white-50">Agregar, editar o eliminar platillos del restaurante</p>
+                    <a href="@Url.Action("Admin", "Menu")" class="btn btn-light btn-sm mt-2">
+                        Ir a Menú
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Gestionar Usuarios -->
+        <div class="col-md-3">
+            <div class="card admin-card text-center shadow-lg">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-white mb-3"></i>
+                    <h5 class="card-title text-white">Gestionar Usuarios</h5>
+                    <p class="card-text text-white-50">Ver, editar o eliminar usuarios registrados</p>
+                    <a href="@Url.Action("ListUsuarios", "Usuario")" class="btn btn-light btn-sm mt-2">
+                        Ir a Usuarios
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Gestionar Reservas -->
+        <div class="col-md-3">
+            <div class="card admin-card text-center shadow-lg">
+                <div class="card-body">
+                    <i class="fas fa-calendar-alt fa-3x text-white mb-3"></i>
+                    <h5 class="card-title text-white">Gestionar Reservas</h5>
+                    <p class="card-text text-white-50">Ver todas las reservas realizadas</p>
+                    <a href="@Url.Action("AdminReservas", "Reserva")" class="btn btn-light btn-sm mt-2">
+                        Ir a Reservas
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .admin-card {
+        background: linear-gradient(145deg, #1D4ED8, #3B82F6);
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        .admin-card .card-text {
+            font-size: 0.9rem;
+        }
+
+        .admin-card .btn {
+            font-weight: 600;
+        }
+</style>

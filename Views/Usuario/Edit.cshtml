@@ -1,0 +1,170 @@
+﻿@model Proyecto_CPS.ViewModels.UsuarioVM
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="mb-0">
+                        <i class="fas fa-user-edit me-2"></i>
+                        Editar Usuario
+                    </h3>
+                </div>
+                <div class="card-body p-4">
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>@ViewBag.Error
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="IdUsuarioVM" />
+
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <h5 class="text-secondary">
+                                    <i class="fas fa-user me-2"></i>Información del Usuario
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="NombreUsuarioVM" class="form-label">
+                                <i class="fas fa-user me-1"></i>
+                                Nombre de Usuario <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="NombreUsuarioVM" class="form-control form-control-lg" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"
+                                   title="Solo se permiten letras y espacios"
+                                   oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g,'')" />
+                            <span asp-validation-for="NombreUsuarioVM" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CorreoVM" class="form-label">
+                                <i class="fas fa-envelope me-1"></i>
+                                Correo Electrónico <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="CorreoVM" type="email" class="form-control form-control-lg" required />
+                            <span asp-validation-for="CorreoVM" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RolIdVM" class="form-label">
+                                <i class="fas fa-user-tag me-1"></i>
+                                Rol del Usuario <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="RolIdVM" class="form-select form-select-lg" asp-items="ViewBag.Roles" required>
+                                <option value="">-- Selecciona un rol --</option>
+                            </select>
+                            <span asp-validation-for="RolIdVM" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-toggle-on me-1"></i>
+                                Estado del Usuario
+                            </label>
+                            <div class="form-check form-switch">
+                                <input asp-for="EstadoVM" class="form-check-input" type="checkbox" role="switch" style="width: 3em; height: 1.5em;">
+                                <label class="form-check-label ms-2">
+                                    <span id="estadoLabel">@(Model.EstadoVM ? "Activo" : "Inactivo")</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-12 mb-3">
+                                <h5 class="text-secondary">
+                                    <i class="fas fa-lock me-2"></i>Cambiar Contraseña
+                                </h5>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ContrasenaVM" class="form-label">
+                                    <i class="fas fa-key me-1"></i>
+                                    Nueva Contraseña <span class="text-danger">*</span>
+                                </label>
+                                <input asp-for="ContrasenaVM" type="password" class="form-control form-control-lg" required minlength="6" pattern="^(?=.*[A-Z])(?=.*[\W_]).{6,}$"
+                                       title="Debe contener al menos una mayúscula y un carácter especial." />
+                                <span asp-validation-for="ContrasenaVM" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ConfirmarContrasenaVM" class="form-label">
+                                    <i class="fas fa-key me-1"></i>
+                                    Confirmar Contraseña <span class="text-danger">*</span>
+                                </label>
+                                <input asp-for="ConfirmarContrasenaVM" type="password" class="form-control form-control-lg" required minlength="6" pattern="^(?=.*[A-Z])(?=.*[\W_]).{6,}$"
+                                       title="Debe contener al menos una mayúscula y un carácter especial." />
+                                <span asp-validation-for="ConfirmarContrasenaVM" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-warning btn-lg">
+                                <i class="fas fa-save me-2"></i>Guardar Cambios
+                            </button>
+                            <a asp-action="ListUsuarios" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #ffc107;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #495057;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Actualizar label del estado
+        document.getElementById('EstadoVM').addEventListener('change', function() {
+            const label = document.getElementById('estadoLabel');
+            label.textContent = this.checked ? 'Activo' : 'Inactivo';
+        });
+
+        // Validar que las contraseñas coincidan
+        document.getElementById('ConfirmarContrasenaVM').addEventListener('input', function() {
+            const password = document.getElementById('ContrasenaVM').value;
+            const confirmPassword = this.value;
+
+            if (password !== confirmPassword) {
+                this.setCustomValidity('Las contraseñas no coinciden');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+}

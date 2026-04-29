@@ -1,0 +1,265 @@
+﻿@{
+    ViewData["Title"] = "Reservar Mesa - Rancho Azul";
+    var mesas = ViewBag.Mesas as List<Proyecto_CPS.Models.Mesa>;
+    var mesasReservadas = ViewBag.MesasReservadas as List<int> ?? new List<int>();
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row mb-4">
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-4 text-primary">
+                <i class="fas fa-chair me-3"></i>Reservar Mesa
+            </h1>
+            <p class="lead text-muted">Selecciona tu mesa favorita en Rancho Azul</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end d-flex align-items-center justify-content-end">
+            <a href="@Url.Action("MisReservas", "Reserva")" class="btn btn-info btn-lg shadow">
+                <i class="fas fa-list-alt me-2"></i>
+                Ver Mis Reservas
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>@TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Leyenda de estados -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center flex-wrap gap-4">
+                        <div class="d-flex align-items-center">
+                            <div class="status-indicator bg-success me-2"></div>
+                            <span><i class="fas fa-check-circle text-success me-1"></i> Disponible</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="status-indicator bg-danger me-2"></div>
+                            <span><i class="fas fa-times-circle text-danger me-1"></i> Reservada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (mesas != null && mesas.Any())
+    {
+        <div class="row g-4">
+            @foreach (var mesa in mesas)
+            {
+                var estaReservada = mesasReservadas.Contains(mesa.IdMesa);
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mesa-card shadow-lg border-0 h-100 @(estaReservada ? "mesa-reservada" : "mesa-disponible")">
+                        <div class="card-header @(estaReservada ? "bg-gradient-danger" : "bg-gradient-primary") text-white text-center py-4">
+                            <div class="mesa-number-circle mb-2">
+                                @mesa.NumMesa
+                            </div>
+                            <h3 class="mb-0 fw-bold">Mesa @mesa.NumMesa</h3>
+                        </div>
+
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <div class="mesa-icon mb-4">
+                                <i class="fas fa-utensils fa-4x @(estaReservada ? "text-secondary" : "text-primary")"></i>
+                            </div>
+
+                            <div class="mb-4">
+                                <span class="badge @(estaReservada ? "bg-danger" : "bg-success") fs-5 px-4 py-3">
+                                    <i class="fas fa-users me-2"></i>
+                                    Capacidad: @mesa.Capacidad personas
+                                </span>
+                            </div>
+
+                            <div class="mesa-features mb-4">
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Vista al jardín</span>
+                                </div>
+                                <div class="feature-item mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Ambiente climatizado</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Servicio personalizado</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto">
+                                @if (estaReservada)
+                                {
+                                    <button class="btn btn-danger btn-lg w-100 disabled" disabled>
+                                        <i class="fas fa-ban me-2"></i>
+                                        Mesa Ocupada
+                                    </button>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("SeleccionarMesa", "Reserva", new { id = mesa.IdMesa })"
+                                       class="btn btn-primary btn-lg w-100 btn-seleccionar">
+                                        <i class="fas fa-calendar-check me-2"></i>
+                                        Reservar Ahora
+                                    </a>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="card-footer @(estaReservada ? "bg-danger" : "bg-success") text-center py-3">
+                            @if (estaReservada)
+                            {
+                                <small class="text-white fw-bold">
+                                    <i class="fas fa-lock me-1"></i>
+                                    NO DISPONIBLE HOY
+                                </small>
+                            }
+                            else
+                            {
+                                <small class="text-white fw-bold">
+                                    <i class="fas fa-unlock me-1"></i>
+                                    DISPONIBLE AHORA
+                                </small>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center shadow">
+            <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+            <h4>No hay mesas disponibles en este momento</h4>
+            <p>Por favor, intenta más tarde o contáctanos directamente.</p>
+        </div>
+    }
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary btn-lg shadow-sm">
+                <i class="fas fa-arrow-left me-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    }
+
+    .bg-gradient-danger {
+        background: linear-gradient(135deg, #dc3545, #b02a37);
+    }
+
+    .mesa-card {
+        transition: all 0.4s ease;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .mesa-disponible:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(13, 110, 253, 0.3) !important;
+    }
+
+    .mesa-reservada {
+        opacity: 0.85;
+    }
+
+        .mesa-reservada:hover {
+            transform: translateY(-5px);
+        }
+
+    .mesa-number-circle {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0 auto;
+        border: 3px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .mesa-icon {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @@keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .btn-seleccionar {
+        transition: all 0.3s ease;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border: none;
+    }
+
+        .btn-seleccionar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.5);
+        }
+
+    .mesa-features {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .feature-item {
+        font-size: 0.95rem;
+        color: #495057;
+    }
+
+    .status-indicator {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .card-header {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .card-footer {
+        border-top: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+
+<script>
+    // Auto-cerrar alertas después de 5 segundos
+    setTimeout(function() {
+        $('.alert').fadeOut('slow');
+    }, 5000);
+</script>

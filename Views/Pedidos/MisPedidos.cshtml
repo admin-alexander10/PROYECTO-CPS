@@ -1,0 +1,314 @@
+﻿@model IEnumerable<Proyecto_CPS.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Mis Pedidos - Rancho Azul";
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="display-4 text-primary">
+                        <i class="fas fa-receipt me-2"></i>Mis Pedidos
+                    </h1>
+                    <p class="lead">Revisa y confirma tus pedidos</p>
+                </div>
+                <div>
+                    <a href="@Url.Action("Index", "Menu")" class="btn btn-success btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Volver al Menú
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var pedido in Model)
+        {
+            <div class="card mb-4 shadow-lg border-primary pedido-card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-0">
+                            <i class="fas fa-hashtag me-1"></i>Pedido #@pedido.IdPedido
+                        </h5>
+                        <small><i class="far fa-calendar-alt me-1"></i>@pedido.FechaPedido.ToString("dd/MM/yyyy HH:mm")</small>
+                    </div>
+                    <span class="badge bg-warning text-dark fs-6">
+                        <i class="fas fa-clock me-1"></i>Pendiente de Confirmar
+                    </span>
+                </div>
+
+                <div class="card-body">
+
+                    @if (pedido.DetalleMenuPedidos != null && pedido.DetalleMenuPedidos.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th><i class="fas fa-utensils me-1"></i>Plato</th>
+                                        <th><i class="fas fa-sort-numeric-up me-1"></i>Cantidad</th>
+                                        <th><i class="fas fa-tag me-1"></i>Precio Unitario</th>
+                                        <th><i class="fas fa-calculator me-1"></i>Subtotal</th>
+                                        <th><i class="fas fa-cog me-1"></i>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var detalle in pedido.DetalleMenuPedidos)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@detalle.Menu.Nombre</strong>
+                                                <br>
+                                                <small class="text-muted">@detalle.Menu.Descripcion</small>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-info fs-6">@detalle.Cantidad</span>
+                                            </td>
+                                            <td>S/. @detalle.Menu.Precio.ToString("0.00")</td>
+                                            <td>
+                                                <strong class="text-success">S/. @((detalle.Cantidad * detalle.Menu.Precio).ToString("0.00"))</strong>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm"
+                                                        onclick="eliminarPlato(@detalle.IdDetallePedido)">
+                                                    <i class="fas fa-trash me-1"></i>Eliminar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-light">
+                                        <td colspan="3" class="text-end">
+                                            <strong class="fs-5">Total a Pagar:</strong>
+                                        </td>
+                                        <td colspan="2">
+                                            <strong class="fs-4 text-primary">
+                                                S/. @pedido.DetalleMenuPedidos.Sum(d => d.Cantidad * d.Menu.Precio).ToString("0.00")
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card bg-light border-0">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fas fa-info-circle me-2 text-primary"></i>
+                                            Información del Pedido
+                                        </h5>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2">
+                                                <i class="fas fa-shopping-bag text-success me-2"></i>
+                                                <strong>Total de platos:</strong> @pedido.DetalleMenuPedidos.Sum(d => d.Cantidad)
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="fas fa-clock text-warning me-2"></i>
+                                                <strong>Estado:</strong> Pendiente de Confirmar
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-lightbulb text-info me-2"></i>
+                                                <strong>Nota:</strong> Al confirmar, tu pedido será enviado al mesero
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-flex align-items-center">
+                                <div class="w-100">
+                                    <!-- NUEVA SECCIÓN: Selección de Método de Pago -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-credit-card me-2"></i>
+                                            Selecciona tu método de pago:
+                                        </label>
+                                        <select class="form-select form-select-lg" id="metodoPago-@pedido.IdPedido">
+                                            <option value="">-- Selecciona un método --</option>
+                                            <option value="1">💳 Yape</option>
+                                            <option value="2">💰 Plin</option>
+                                        </select>
+                                    </div>
+
+                                    <button class="btn btn-success btn-lg w-100 mb-2 btn-confirmar"
+                                            id="btnConfirmar-@pedido.IdPedido"
+                                            onclick="confirmarPedido(@pedido.IdPedido)"
+                                            disabled>
+                                        <i class="fas fa-check-circle me-2"></i>Realizar Pedido
+                                    </button>
+                                    <a href="@Url.Action("Index", "Menu")"
+                                       class="btn btn-outline-primary btn-lg w-100">
+                                        <i class="fas fa-plus-circle me-2"></i>Agregar Más Platos
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning text-center">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            No hay platos en este pedido.
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body text-center py-5">
+                        <i class="fas fa-shopping-cart fa-5x text-muted mb-4"></i>
+                        <h3 class="text-muted mb-3">No tienes pedidos pendientes</h3>
+                        <p class="lead text-muted mb-4">¡Explora nuestro delicioso menú y haz tu primer pedido!</p>
+                        <a href="@Url.Action("Index", "Menu")" class="btn btn-primary btn-lg">
+                            <i class="fas fa-utensils me-2"></i>Ver Menú Completo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .pedido-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+        .pedido-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .btn-confirmar {
+        animation: pulse 2s infinite;
+    }
+
+    @@keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
+        }
+
+        50% {
+            box-shadow: 0 0 0 10px rgba(25, 135, 84, 0);
+        }
+    }
+
+    .table tbody tr {
+        transition: all 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+        }
+
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+
+    select.form-select:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    }
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        animation: none !important;
+    }
+</style>
+
+<script>
+    // Habilitar/Deshabilitar botón según método de pago seleccionado
+    document.querySelectorAll('select[id^="metodoPago-"]').forEach(function (select) {
+        select.addEventListener('change', function () {
+            const pedidoId = this.id.split('-')[1];
+            const btnConfirmar = document.getElementById('btnConfirmar-' + pedidoId);
+
+            if (this.value !== '') {
+                btnConfirmar.disabled = false;
+                btnConfirmar.classList.add('pulse-animation');
+            } else {
+                btnConfirmar.disabled = true;
+                btnConfirmar.classList.remove('pulse-animation');
+            }
+        });
+    });
+
+    function eliminarPlato(id) {
+        if (!confirm("¿Estás seguro de eliminar este plato del pedido?")) return;
+
+        fetch('/Pedidos/EliminarPlato', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `idDetalle=${id}`
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    location.reload();
+                } else {
+                    alert('❌ Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                alert('❌ Error al eliminar el plato');
+                console.error('Error:', error);
+            });
+    }
+
+    function confirmarPedido(id) {
+        const metodoPagoSelect = document.getElementById('metodoPago-' + id);
+        const metodoPagoId = metodoPagoSelect.value;
+
+        if (!metodoPagoId) {
+            alert('⚠️ Por favor, selecciona un método de pago antes de confirmar');
+            return;
+        }
+
+        const metodoPagoNombre = metodoPagoSelect.options[metodoPagoSelect.selectedIndex].text;
+
+        if (!confirm('¿Confirmar y enviar pedido al mesero?\n\nMétodo de pago: ' + metodoPagoNombre + '\n\nDespués de confirmar, no podrás modificarlo.')) return;
+
+        const btnConfirmar = event.target;
+        const textoOriginal = btnConfirmar.innerHTML;
+        btnConfirmar.disabled = true;
+        btnConfirmar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando pedido...';
+
+        fetch('/Pedidos/ConfirmarPedido', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `idPedido=${id}&metodoPagoId=${metodoPagoId}`
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ ' + data.message + '\n\nTu pedido ha sido enviado exitosamente al mesero con el método de pago: ' + metodoPagoNombre);
+                    location.reload();
+                } else {
+                    alert('❌ Error: ' + data.message);
+                    btnConfirmar.disabled = false;
+                    btnConfirmar.innerHTML = textoOriginal;
+                }
+            })
+            .catch(error => {
+                alert('❌ Error al confirmar el pedido. Por favor, intenta nuevamente.');
+                console.error('Error:', error);
+                btnConfirmar.disabled = false;
+                btnConfirmar.innerHTML = textoOriginal;
+            });
+    }
+</script>

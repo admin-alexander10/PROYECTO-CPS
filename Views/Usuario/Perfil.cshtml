@@ -1,0 +1,88 @@
+﻿@using Proyecto_CPS.Models
+@model Usuario
+
+@{
+    ViewData["Title"] = "Perfil de Usuario - Rancho Azul";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-primary">
+                <div class="card-header bg-primary text-white text-center">
+                    <i class="fas fa-user-circle fa-3x mb-2"></i>
+                    <h3 class="mb-0">@Model.NombreUsuario</h3>
+                    <small class="text-light">@Model.Rol?.NombreRol</small>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center mb-3">
+                        <div class="col-md-6 mb-2">
+                            <div class="card bg-light shadow-sm border-info h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+                                    <h6 class="card-subtitle mb-1 text-muted">Correo</h6>
+                                    <p class="card-text fw-bold">@Model.Correo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="card bg-light shadow-sm border-info h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-calendar-alt fa-2x text-primary mb-2"></i>
+                                    <h6 class="card-subtitle mb-1 text-muted">Fecha de Creación</h6>
+                                    <p class="card-text fw-bold">@Model.FechaCreacion.ToString("dd/MM/yyyy")</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center mb-3">
+                        <div class="col-md-12 mb-2">
+                            <div class="card bg-light shadow-sm border-info h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-toggle-on fa-2x text-primary mb-2"></i>
+                                    <h6 class="card-subtitle mb-1 text-muted">Estado</h6>
+                                    <p class="card-text fw-bold">
+                                        @if (Model.Estado)
+                                        {
+                                            <span class="badge bg-success">Activo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">Inactivo</span>
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-center">
+                    <a href="javascript:history.back()" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-arrow-left me-1"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card-body .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card-body .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+    .card-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .badge {
+        font-size: 0.9rem;
+    }
+</style>

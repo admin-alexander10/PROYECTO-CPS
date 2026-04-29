@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_CPS.ViewModels
 {
-    public class PedidoMesero
+    public class PedidoMeseroVM
     {
         public int MesaId { get; set; }
         public string NombreCliente { get; set; }

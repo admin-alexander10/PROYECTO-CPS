@@ -1,0 +1,118 @@
+﻿@using Proyecto_CPS.Models
+@model Usuario
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Confirmar Eliminación de Usuario
+                    </h3>
+                </div>
+                <div class="card-body p-4">
+
+                    <div class="alert alert-warning mb-4">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <strong>¿Estás seguro de eliminar este usuario?</strong>
+                        <p class="mb-0 mt-2">Esta acción no se puede deshacer y eliminará permanentemente el acceso al sistema.</p>
+                    </div>
+
+                    <div class="card bg-light mb-4">
+                        <div class="card-body">
+                            <h4 class="text-primary mb-4">
+                                <i class="fas fa-user-circle me-2"></i>
+                                @Model.NombreUsuario
+                            </h4>
+
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">
+                                    <i class="fas fa-envelope me-1 text-primary"></i>
+                                    Correo:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Model.Correo
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="fas fa-user-tag me-1 text-primary"></i>
+                                    Rol:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <span class="badge bg-info">@Model.Rol?.NombreRol</span>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="fas fa-calendar-alt me-1 text-primary"></i>
+                                    Fecha de Creación:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="fas fa-toggle-on me-1 text-primary"></i>
+                                    Estado:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.Estado)
+                                    {
+                                        <span class="badge bg-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactivo</span>
+                                    }
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="IdUsuario" />
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash-alt me-2"></i>
+                                Sí, Eliminar Usuario
+                            </button>
+                            <a asp-action="ListUsuarios" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times me-2"></i>
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+    }
+
+    .card-body dl dt {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .card-body dl dd {
+        color: #6c757d;
+    }
+</style>
+
+<script>
+    // Confirmación adicional antes de eliminar
+    document.querySelector('form').addEventListener('submit', function(e) {
+        if (!confirm('⚠️ ÚLTIMA ADVERTENCIA\n\n¿Realmente deseas eliminar este usuario?\n\nEsta acción es IRREVERSIBLE.')) {
+            e.preventDefault();
+        }
+    });
+</script>
