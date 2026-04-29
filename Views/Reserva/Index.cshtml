@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Reservar Mesa - Rancho Azul";
+    ViewData["Title"] = "Reservar Mesa - El Puquio";
     var mesas = ViewBag.Mesas as List<Proyecto_CPS.Models.Mesa>;
     var mesasReservadas = ViewBag.MesasReservadas as List<int> ?? new List<int>();
 }
@@ -10,7 +10,7 @@
             <h1 class="display-4 text-primary">
                 <i class="fas fa-chair me-3"></i>Reservar Mesa
             </h1>
-            <p class="lead text-muted">Selecciona tu mesa favorita en Rancho Azul</p>
+            <p class="lead text-muted">Selecciona tu mesa favorita en El Puquio</p>
         </div>
         <div class="col-md-6 text-center text-md-end d-flex align-items-center justify-content-end">
             <a href="@Url.Action("MisReservas", "Reserva")" class="btn btn-info btn-lg shadow">

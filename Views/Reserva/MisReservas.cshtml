@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Proyecto_CPS.Models.Reserva>
 
 @{
-    ViewData["Title"] = "Mis Reservas - Rancho Azul";
+    ViewData["Title"] = "Mis Reservas - El Puquio";
     var hoy = DateTime.Now.Date;
 }
 
@@ -11,7 +11,7 @@
             <h1 class="display-4 text-primary">
                 <i class="fas fa-list-alt me-3"></i>Mis Reservas
             </h1>
-            <p class="lead text-muted">Gestiona tus reservas en Rancho Azul</p>
+            <p class="lead text-muted">Gestiona tus reservas en El Puquio</p>
         </div>
         <div class="col-md-6 text-end d-flex align-items-center justify-content-end">
             <a href="@Url.Action("Index", "Reserva")" class="btn btn-success btn-lg shadow">
