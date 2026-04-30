@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Proyecto_CPS.Migrations
 {
     /// <inheritdoc />
-    public partial class BD : Migration
+    public partial class BDPCS : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -504,9 +504,9 @@ namespace Proyecto_CPS.Migrations
                 columns: new[] { "IdUsuario", "ClienteId", "Contrasena", "Correo", "EmpleadoId", "Estado", "FechaCreacion", "NombreUsuario", "RolId" },
                 values: new object[,]
                 {
-                    { 1, null, "123456789", "admin@ranchoazul.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin", 3 },
-                    { 2, null, "123456789", "mesero@ranchoazul.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "mesero", 1 },
-                    { 3, null, "123456789", "cocinero@ranchoazul.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "cocinero", 2 }
+                    { 1, null, "123456789", "admin@puquio.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin", 3 },
+                    { 2, null, "123456789", "mesero@puquio.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "mesero", 1 },
+                    { 3, null, "123456789", "cocinero@puquio.com", null, true, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "cocinero", 2 }
                 });
 
             migrationBuilder.CreateIndex(

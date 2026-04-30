@@ -12,8 +12,8 @@ using Proyecto_CPS.Data;
 namespace Proyecto_CPS.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20260417214745_BD")]
-    partial class BD
+    [Migration("20260430175455_BDPCS")]
+    partial class BDPCS
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -797,7 +797,7 @@ namespace Proyecto_CPS.Migrations
                         {
                             IdUsuario = 1,
                             Contrasena = "123456789",
-                            Correo = "admin@ranchoazul.com",
+                            Correo = "admin@puquio.com",
                             Estado = true,
                             FechaCreacion = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreUsuario = "admin",
@@ -807,7 +807,7 @@ namespace Proyecto_CPS.Migrations
                         {
                             IdUsuario = 2,
                             Contrasena = "123456789",
-                            Correo = "mesero@ranchoazul.com",
+                            Correo = "mesero@puquio.com",
                             Estado = true,
                             FechaCreacion = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreUsuario = "mesero",
@@ -817,7 +817,7 @@ namespace Proyecto_CPS.Migrations
                         {
                             IdUsuario = 3,
                             Contrasena = "123456789",
-                            Correo = "cocinero@ranchoazul.com",
+                            Correo = "cocinero@puquio.com",
                             Estado = true,
                             FechaCreacion = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreUsuario = "cocinero",

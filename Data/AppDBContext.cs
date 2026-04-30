@@ -301,7 +301,7 @@ namespace Proyecto_CPS.Data
             {
                 IdUsuario = 1,
                 NombreUsuario = "admin",
-                Correo = "admin@ranchoazul.com",
+                Correo = "admin@puquio.com",
                 Contrasena = "123456789",
                 FechaCreacion = new DateTime(2025, 01, 01),
                 Estado = true,
@@ -315,7 +315,7 @@ namespace Proyecto_CPS.Data
             {
                 IdUsuario = 2,
                 NombreUsuario = "mesero",
-                Correo = "mesero@ranchoazul.com",
+                Correo = "mesero@puquio.com",
                 Contrasena = "123456789",
                 FechaCreacion = new DateTime(2025, 01, 01),
                 Estado = true,
@@ -329,7 +329,7 @@ namespace Proyecto_CPS.Data
             {
                 IdUsuario = 3,
                 NombreUsuario = "cocinero",
-                Correo = "cocinero@ranchoazul.com",
+                Correo = "cocinero@puquio.com",
                 Contrasena = "123456789",
                 FechaCreacion = new DateTime(2025, 01, 01),
                 Estado = true,
