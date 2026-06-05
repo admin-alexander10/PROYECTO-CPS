@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto-CPS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11ba255dbc67ea4a8363c9461f4cd71effaec2a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+515666c97deb24d8ee2454a75c889eb90f8e56bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto-CPS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto-CPS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

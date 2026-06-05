@@ -140,7 +140,7 @@
                                 </div>
 
                                 <div class="card-footer bg-light border-top-0 p-3">
-                                    <button class="btn btn-danger w-100 btn-lg" onclick="confirmarCancelacion(@reserva.IdReserva, @reserva.Mesas.NumMesa)">
+                                    <button class="btn btn-danger w-100 btn-lg" onclick="confirmarCancelacion(@reserva.IdReserva, @reserva.Mesas.NumMesa, this)">
                                         <i class="fas fa-times-circle me-2"></i>
                                         Cancelar Reserva
                                     </button>
@@ -302,7 +302,7 @@
                     <div class="card-body text-center py-5">
                         <i class="fas fa-calendar-times fa-5x text-muted mb-4"></i>
                         <h3 class="text-muted mb-3">No tienes reservas registradas</h3>
-                        <p class="lead text-muted mb-4">¡Haz tu primera reserva y asegura tu mesa en Rancho Azul!</p>
+                        <p class="lead text-muted mb-4">¡Haz tu primera reserva y asegura tu mesa en El Puquio!</p>
                         <a href="@Url.Action("Index", "Reserva")" class="btn btn-primary btn-lg shadow">
                             <i class="fas fa-plus-circle me-2"></i>Hacer una Reserva
                         </a>
@@ -410,45 +410,44 @@
 </style>
 
 <script>
-        function confirmarCancelacion(idReserva, numMesa) {
-            if (confirm(`¿Estás seguro de cancelar la reserva de la Mesa ${numMesa}?\n\nLa mesa volverá a estar disponible para otros clientes.`)) {
-                cancelarReserva(idReserva);
-            }
+    function confirmarCancelacion(idReserva, numMesa, btn) {
+        if (confirm(`¿Estás seguro de cancelar la reserva de la Mesa ${numMesa}?\n\nLa mesa volverá a estar disponible para otros clientes.`)) {
+            cancelarReserva(idReserva, btn);
         }
+    }
 
-        function cancelarReserva(id) {
-            const btnCancelar = event.target;
-            const textoOriginal = btnCancelar.innerHTML;
-            btnCancelar.disabled = true;
-            btnCancelar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Cancelando...';
+    function cancelarReserva(id, btnCancelar) {
+        const textoOriginal = btnCancelar.innerHTML;
+        btnCancelar.disabled = true;
+        btnCancelar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Cancelando...';
 
-            fetch('@Url.Action("CancelarReserva", "Reserva")', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `id=${id}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('✅ ' + data.message);
-                    location.reload();
-                } else {
-                    alert('❌ ' + data.message);
-                    btnCancelar.disabled = false;
-                    btnCancelar.innerHTML = textoOriginal;
-                }
-            })
-            .catch(error => {
-                alert('❌ Error al cancelar la reserva. Por favor, intenta nuevamente.');
-                console.error('Error:', error);
+        fetch('@Url.Action("CancelarReserva", "Reserva")', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `id=${id}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('✅ ' + data.message);
+                location.reload();
+            } else {
+                alert('❌ ' + data.message);
                 btnCancelar.disabled = false;
                 btnCancelar.innerHTML = textoOriginal;
-            });
-        }
+            }
+        })
+        .catch(error => {
+            alert('❌ Error al cancelar la reserva. Por favor, intenta nuevamente.');
+            console.error('Error:', error);
+            btnCancelar.disabled = false;
+            btnCancelar.innerHTML = textoOriginal;
+        });
+    }
 
-        setTimeout(function() {
-            $('.alert').fadeOut('slow');
-        }, 5000);
-    </scr
+    setTimeout(function () {
+        $('.alert').fadeOut('slow');
+    }, 5000);
+</script>
